@@ -41,34 +41,37 @@ function Task() {
   // }
 
   return (
-    <form
-      className="task-edit-form"
-      onSubmit={handleSubmit}
-    >
-      <label>Titre de la tâche :
-        <input type="text" name="title" required defaultValue={task.title} /></label>
-      <label>
-        Description de la tâche :
-        {
-          task.description && <textarea name="description" defaultValue={task.description} />
-        }
-      </label>
-      <label>
-        Priorité :
-        <select defaultValue={task.priority} name="priority" required>
-          <option value="classic">Classique</option>
-          <option value="important">Important</option>
-          <option value="urgent">Urgent</option>
-          <option value="very-urgent">Très urgent</option>
-        </select>
-      </label>
-      <label>
-        Tâche terminée :
-        <input type={'checkbox'} defaultChecked={task.done} name="done" />
-      </label>
-      <button type="button" onClick={handleBack}>Annuler</button>
-      <button type="submit">Modifier</button>
-    </form>
+    <>
+      <h2>Modifier une tâche</h2>
+      <form
+        className="task-edit-form"
+        onSubmit={handleSubmit}
+      >
+        <label>Titre de la tâche :
+          <input type="text" name="title" required defaultValue={task.title} /></label>
+        <label>
+          Description de la tâche :
+          {
+            task.description && <textarea name="description" defaultValue={task.description} />
+          }
+        </label>
+        <label>
+          Priorité :
+          <select defaultValue={task.priority} name="priority" required>
+            <option value="classic">Classique</option>
+            <option value="important">Important</option>
+            <option value="urgent">Urgent</option>
+            <option value="very-urgent">Très urgent</option>
+          </select>
+        </label>
+        <label>
+          Tâche terminée :
+          <input type={'checkbox'} defaultChecked={task.done} name="done" />
+        </label>
+        <button type="button" onClick={handleBack}>Annuler</button>
+        <button type="submit">Modifier</button>
+      </form>
+    </>
   );
 }
 
