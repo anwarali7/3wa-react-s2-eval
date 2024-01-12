@@ -81,7 +81,6 @@ const taskSlice = createSlice({
     },
     updateTask(state, action) {
       state.tasks = state.tasks.map(task => {
-        console.log(task.id, action.payload.id);
         if (task.id === action.payload.id) {
           task = { ...task, ...action.payload }
         }
