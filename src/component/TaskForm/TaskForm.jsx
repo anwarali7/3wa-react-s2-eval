@@ -20,7 +20,7 @@ function TaskForm() {
   }
 
   return (
-    <>
+    <div className="task-form-container">
       <h2>Ajouter une tâche</h2>
       <form
         onSubmit={handleSubmit}
@@ -44,7 +44,7 @@ function TaskForm() {
         </select>
         <button className="task-form__submit-button">Ajouter</button>
       </form>
-    </>
+    </div>
   );
 }
 

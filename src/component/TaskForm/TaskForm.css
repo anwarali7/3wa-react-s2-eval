@@ -1,0 +1,25 @@
+.task-form-container {
+  width: 400px;
+  background-color: rgb(138, 233, 146);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+form.task-form {
+  display: flex;
+  flex-direction: column;
+}
+
+form.task-form > * {
+  min-height: 30px;
+  margin-bottom: 6px;
+  box-sizing: border-box;
+}
+
+form.task-form textarea {
+  box-sizing: border-box;
+  width: 400px;
+  min-height: 30px;
+  resize: vertical;
+}

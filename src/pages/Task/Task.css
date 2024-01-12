@@ -1,0 +1,36 @@
+.task-page {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 400px;
+  max-width: 400px;
+  background-color: rgb(202, 185, 163);
+  border-radius: 12px;
+}
+
+.task-page .task-edit-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+
+.task-page .task-edit-form label {
+  width: 400px;
+  display: flex;
+}
+
+.task-page .task-edit-form label span {
+  width: 190px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.task-page .task-edit-form .edit-task-btn {
+  background-color: rgb(181, 240, 181);
+  margin-top: 10px;
+}
+
+.task-page .task-edit-form .cancel-btn {
+  background-color: rgb(214, 115, 115);
+}

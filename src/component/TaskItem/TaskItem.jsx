@@ -2,6 +2,10 @@ import { useDispatch } from "react-redux";
 import { deleteTask, toggleTask } from "../../store/Slice/taskSlice.js";
 import { Link } from "react-router-dom";
 
+import PropTypes from "prop-types";
+
+import './TaskItem.css';
+
 function TaskItem({ task }) {
 
   const dispatch = useDispatch()
@@ -14,24 +18,42 @@ function TaskItem({ task }) {
     dispatch(deleteTask(task.id))
   }
 
+  const priority = () => {
+    switch (task.priority) {
+      case 'classic':
+        return 'Classique'
+      case 'important':
+        return 'Important'
+      case 'urgent':
+        return 'Urgent'
+      case 'very-urgent':
+        return 'Très urgent'
+      default:
+        return 'Non défini'
+    }
+  }
+
   return (
-    <div className="task-item" style={{
-      display: "flex",
-      minWidth: "250px",
-      justifyContent: "space-between",
-      backgroundColor: "#ddd",
-      borderRadius: "8px",
-    }}>
-      <input type={'checkbox'} onChange={handleToggle} checked={task.done} />
-      <Link to={'/task/' + task.id} style={{color: 'black'}}>
-        <span>{task.title}</span>
-        <br />
-        {task.description && <div>{task.description}</div>}
-        <span>{task.priority}</span>
+    <div className="task-item">
+      <input type={'checkbox'} onChange={handleToggle} checked={task.done} className="task-item__done-checkbox"/>
+      <Link to={'/task/' + task.id} style={{ color: 'black' }}>
+        <div className="task-item__task-title">{task.title}</div>
+        {task.description && <div className="task-item__task-description">{task.description}</div>}
+        <div className="task-item__task-priority">{priority()}</div>
       </Link>
-      <button onClick={handleDelete}>X</button>
+      <button className="task-item__delete-task" onClick={handleDelete}>X</button>
     </div>
   );
+}
+
+TaskItem.propTypes = {
+  task: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    priority: PropTypes.string.isRequired,
+    done: PropTypes.bool.isRequired,
+  }).isRequired
 }
 
 export default TaskItem;

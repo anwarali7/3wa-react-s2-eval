@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectTaskById } from "../../store/selector/taskSelector.js";
 import { updateTask } from "../../store/Slice/taskSlice.js";
 
+import './Task.css'
 
 function Task() {
   const navigate = useNavigate();
@@ -41,22 +42,23 @@ function Task() {
   // }
 
   return (
-    <>
+    <div className="task-page">
       <h2>Modifier une tâche</h2>
       <form
         className="task-edit-form"
         onSubmit={handleSubmit}
       >
-        <label>Titre de la tâche :
+        <label>
+          <span>Titre de la tâche :</span>
           <input type="text" name="title" required defaultValue={task.title} /></label>
         <label>
-          Description de la tâche :
+          <span>Description de la tâche :</span>
           {
             task.description && <textarea name="description" defaultValue={task.description} />
           }
         </label>
         <label>
-          Priorité :
+          <span>Priorité :</span>
           <select defaultValue={task.priority} name="priority" required>
             <option value="classic">Classique</option>
             <option value="important">Important</option>
@@ -65,13 +67,13 @@ function Task() {
           </select>
         </label>
         <label>
-          Tâche terminée :
+          <span>Tâche terminée :</span>
           <input type={'checkbox'} defaultChecked={task.done} name="done" />
         </label>
-        <button type="button" onClick={handleBack}>Annuler</button>
-        <button type="submit">Modifier</button>
+        <button className="edit-task-btn" type="submit">Modifier</button>
+        <button className="cancel-btn" type="button" onClick={handleBack}>Annuler</button>
       </form>
-    </>
+    </div>
   );
 }
 

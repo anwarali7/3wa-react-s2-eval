@@ -20,26 +20,22 @@ function TaskList() {
   }
 
   return (
-    <div className="task-list-container" style={{
-      display: "flex",
-      flexDirection: "column",
-      maxWidth: "500px",
-    }}>
+    <div className="task-list-container">
       <h2>Liste des tâches</h2>
       <div className="filters-container">
         Filtrer les tâches : <br />
         <label>
           <input onChange={handleChange} type="radio" name="showDone" value="both" defaultChecked />
           <span>Afficher toutes les tâches</span>
-        </label><br />
+        </label>
         <label>
           <input onChange={handleChange} type="radio" name="showDone" value="done" />
           <span>Afficher les tâches terminées</span>
-        </label><br />
+        </label>
         <label>
           <input onChange={handleChange} type="radio" name="showDone" value="inprogress" />
           <span>Afficher les tâches en cours</span>
-        </label><br />
+        </label>
         <label>
           Afficher les tâches par priorité :
           <select onChange={handleChange} name="showPriority" defaultValue="">
