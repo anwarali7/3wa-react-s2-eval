@@ -8,7 +8,7 @@ function NavBar() {
       <NavLink
         end
         to={'/'}
-        className={({ isActive }) => isActive && 'active'}
+        className={({ isActive }) => isActive ? 'active' : ''}
       >
         Liste des tâches
       </NavLink>

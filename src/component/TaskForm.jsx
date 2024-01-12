@@ -39,7 +39,6 @@ function TaskForm() {
         <option value="important">Important</option>
         <option value="urgent">Urgent</option>
         <option value="very-urgent">Très urgent</option>
-
       </select>
       <button className="task-form__submit-button">Ajouter</button>
     </form>

@@ -1,5 +1,6 @@
 import TaskList from "./component/TaskList.jsx";
 import TaskForm from "./component/TaskForm.jsx";
+import Task from "./pages/Task/Task.jsx";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./component/NavBar/NavBar.jsx";
 
@@ -19,7 +20,7 @@ function App() {
           <h2>Liste des tâches</h2>
           <TaskList />
         </>} />
-        <Route path="/task:id" element={<h2>Task</h2>} />
+        <Route path="/task/:id" element={<Task />} />
       </Routes>
     </>
   )
