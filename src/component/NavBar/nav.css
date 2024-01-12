@@ -1,0 +1,15 @@
+nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  gap: 15px;
+  padding: 5px 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.active {
+  color: orange;
+}
