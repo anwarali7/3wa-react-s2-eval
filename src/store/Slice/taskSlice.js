@@ -2,16 +2,58 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let id = 0
 
+const initialTasks = [
+  {
+    id: id++,
+    title: "Acheter du pain",
+    description: "Acheter du pain à la boulangerie",
+    priority: "classic",
+    done: false
+  },
+  {
+    id: id++,
+    title: "Acheter du lait",
+    description: "Acheter du lait",
+    priority: "important",
+    done: true
+  },
+  {
+    id: id++,
+    title: "Acheter du beurre",
+    description: "Acheter du beurre",
+    priority: "urgent",
+    done: true
+  },
+  {
+    id: id++,
+    title: "Acheter du fromage",
+    description: "Acheter du fromage",
+    priority: "very-urgent",
+    done: false
+  },
+  {
+    id: id++,
+    title: "Acheter du sucre",
+    description: "Acheter du sucre",
+    priority: "very-urgent",
+    done: true
+  }
+]
+
 const taskSlice = createSlice({
   name: 'task',
   initialState: {
-    tasks: [],
+    tasks: initialTasks,
     task: {
       title: '',
       description: '',
       priority: ''
     },
-    message: ''
+    message: '',
+    filters: {
+      showDone: 'both',
+      showPriority: 'all'
+    }
   },
   reducers: {
     changeTask(state, action) {
@@ -45,6 +87,9 @@ const taskSlice = createSlice({
         }
         return task;
       })
+    },
+    setFilters(state, action) {
+      state.filters[action.payload.name] = action.payload.value
     }
   }
 })
@@ -54,7 +99,8 @@ export const {
   addTask,
   toggleTask,
   deleteTask,
-  updateTask
+  updateTask,
+  setFilters
 } = taskSlice.actions;
 
 export default taskSlice.reducer;

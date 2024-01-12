@@ -30,16 +30,15 @@ function Task() {
       ...taskData,
       done: taskData.done === 'on' ? true : false,
     }
-    console.log(task, newTask);
     dispatch(updateTask(newTask));
     navigate('/');
   }
 
-  if (!task) {
-    return (<p>
-      Aucune tâche à afficher.
-    </p>);
-  }
+  // if (!task) {
+  //   return (<p>
+  //     Aucune tâche à afficher.
+  //   </p>);
+  // }
 
   return (
     <form
